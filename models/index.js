@@ -2,7 +2,7 @@ const User = require("./User");
 const Band = require("./Band");
 const Song = require("./Song");
 const Chord = require("./Chord");
-const Lyric = require("./Lyrics");
+const Lyric = require("./Lyric");
 
 Band.hasMany(User, {
   foreignKey: "band_id",
@@ -20,7 +20,7 @@ Song.hasMany(Lyric, {
 });
 
 Lyric.hasOne(Chord, {
-  foreignKey: "lyric_id",
+  foreignKey: "chord_id",
   onDelete: "CASCADE",
 });
 
@@ -34,7 +34,7 @@ Song.belongsTo(Band, {
   onDelete: "CASCADE",
 });
 
-Lyric.belongsTo(Chord, {
+Lyric.belongsTo(Song, {
   foreignKey: "song_id",
   onDelete: "CASCADE",
 });

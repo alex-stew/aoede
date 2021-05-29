@@ -45,7 +45,7 @@ User.init(
       allowNull: false,
       foreignKey: {
         model: 'band',
-        
+        key: 'id',
       }
     },
   },

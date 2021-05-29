@@ -1,0 +1,53 @@
+[{
+        "key": "C",
+        "choices": ["C", "Dm", "Em", "F", "G", "Am", "B°"]
+    },
+    {
+        "key": "C#",
+        "choices": ["C#", "D#m", "E#m", "F#", "G#", "A#m", "B#°"]
+    },
+    {
+        "key": "D",
+        "choices": ["D", "Em", "F#m", "G", "A", "Bm", "C#°"]
+    },
+    {
+        "key": "E♭",
+        "choices": ["E♭", "Fm", "Gm", "A♭", "B♭", "Cm", "D°"]
+    },
+    {
+        "key": "E",
+        "choices": ["E", "F#m", "G#m", "A", "B", "C#m", "D#°"]
+    },
+    {
+        "key": "F",
+        "choices": ["F", "Gm", "Am", "B♭", "C", "Dm", "E°"]
+    },
+    {
+        "key": "F#",
+        "choices": ["F#", "G#m", "A#m", "B", "C#", "D#m", "E#°"]
+    },
+    {
+        "key": "G♭",
+        "choices": ["G♭", "A♭m", "B♭m", "C♭", "D♭", "E♭m", "F°"]
+    },
+    {
+        "key": "G",
+        "choices": ["G", "Am", "Bm", "C", "D", "Em", "F#°"]
+    },
+    {
+        "key": "A♭",
+        "choices": ["A♭", "B♭m", "Cm", "D♭", "E♭", "Fm", "G°"]
+    },
+    {
+        "key": "A",
+        "choices": ["A", "Bm", "C#m", "D", "E", "F#m", "G#°"]
+    },
+    {
+        "key": "B♭",
+        "choices": ["B♭", "Cm", "Dm", "E♭", "F", "Gm", "A°"]
+    },
+    {
+        "key": "B",
+        "choices": ["B", "C#m", "D#m", "E", "F#", "G#m", "A#°"]
+    }
+]

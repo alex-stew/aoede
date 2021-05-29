@@ -1,0 +1,21 @@
+[{
+        "username": "alexAirhead",
+        "email": "alex@email.com",
+        "password": "password"
+    },
+    {
+        "username": "benBoop",
+        "email": "ben@gmail.com",
+        "password": "password"
+    },
+    {
+        "username": "witTravis",
+        "email": "travis@gmail.com",
+        "password": "password"
+    },
+    {
+        "username": "kevinMcLovin",
+        "email": "kevin@gmail.com",
+        "password": "password"
+    }
+]
