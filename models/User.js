@@ -40,6 +40,14 @@ User.init(
         isAlphanumeric: true,
       },
     },
+    band_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      foreignKey: {
+        model: 'band',
+        
+      }
+    },
   },
   {
     hooks: {

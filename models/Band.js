@@ -16,20 +16,12 @@ Band.init(
       allowNull: false,
       unique: true,
       validate: {
-        len: [6],
+        len: [3],
       },
     },
     genre: {
         type: DataTypes.STRING,
     },
-    members:{
-        type: DataTypes.STRING,
-        references: {
-            model: 'user',
-            key: 'id',
-            unique: false
-          }
-    }
   },
   {
     sequelize,
