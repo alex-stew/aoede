@@ -1,21 +1,25 @@
 [{
         "username": "alexAirhead",
         "email": "alex@email.com",
-        "password": "password"
+        "password": "password",
+        "band_id": "1"
     },
     {
         "username": "benBoop",
         "email": "ben@gmail.com",
-        "password": "password"
+        "password": "password",
+        "band_id": "1"
     },
     {
         "username": "witTravis",
         "email": "travis@gmail.com",
-        "password": "password"
+        "password": "password",
+        "band_id": "1"
     },
     {
         "username": "kevinMcLovin",
         "email": "kevin@gmail.com",
-        "password": "password"
+        "password": "password",
+        "band_id": "1"
     }
 ]

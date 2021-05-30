@@ -1,6 +1,7 @@
 const express = require('express');
 const routes = require('./routes');
 const session = require('express-session');
+const cors = require('cors');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -24,6 +25,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
+
+app.use(cors());
+
+app.use('/login', (req, res) => {
+  res.send({ 
+    token:'test123'
+  });
+});
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening 🌏 on PORT: ' + PORT));

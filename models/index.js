@@ -1,30 +1,23 @@
 const User = require("./User");
 const Band = require("./Band");
 const Song = require("./Song");
+const Bar = require("./Bar");
+const BarChord = require("./BarChord");
 const Chord = require("./Chord");
-const Lyric = require("./Lyric");
 
+// Band to User relationship
 Band.hasMany(User, {
   foreignKey: "band_id",
   onDelete: "CASCADE",
 });
 
-Band.hasMany(Song, {
+User.belongsTo(Band, {
   foreignKey: "band_id",
   onDelete: "CASCADE",
 });
 
-Song.hasMany(Lyric, {
-  foreignKey: "song_id",
-  onDelete: "CASCADE",
-});
-
-Lyric.hasOne(Chord, {
-  foreignKey: "chord_id",
-  onDelete: "CASCADE",
-});
-
-User.belongsTo(Band, {
+// Band to Song relationship
+Band.hasMany(Song, {
   foreignKey: "band_id",
   onDelete: "CASCADE",
 });
@@ -34,14 +27,37 @@ Song.belongsTo(Band, {
   onDelete: "CASCADE",
 });
 
-Lyric.belongsTo(Song, {
+// Song to Bar relationship
+Song.hasMany(Bar, {
   foreignKey: "song_id",
   onDelete: "CASCADE",
 });
 
-Lyric.belongsTo(Chord, {
+Bar.belongsTo(Song, {
+  foreignKey: "song_id",
+  onDelete: "CASCADE",
+});
+
+// Bar to BarChord relationship
+Bar.hasMany(BarChord, {
+  foreignKey: "bar_id",
+  onDelete: "CASCADE",
+});
+
+BarChord.belongsTo(Bar, {
+  foreignKey: "bar_id",
+  onDelete: "CASCADE",
+});
+
+// BarChord to Chord relationship
+Chord.hasMany(BarChord, {
   foreignKey: "chord_id",
   onDelete: "CASCADE",
 });
 
-module.exports = { User, Band, Song, Chord, Lyric };
+BarChord.belongsTo(Chord, {
+  foreignKey: "chord_id",
+  onDelete: "CASCADE",
+});
+
+module.exports = { User, Band, Song, Bar, BarChord, Chord };

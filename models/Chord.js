@@ -11,14 +11,9 @@ Chord.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    content: {
+    name: {
       type: DataTypes.STRING,
-      allowNull: true,
-      unique: true,
-      validate: {
-        len: [6],
-      },
-    },
+    }
   },
   {
     sequelize,

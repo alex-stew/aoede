@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Navbar from './Navbar';
+import Profile from './Profile';
 
 function Dashboard() {
     return (
-        <div>
-            
+        <div className="h-full">
+            <Navbar />
+            <Profile />
         </div>
     )
 }

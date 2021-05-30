@@ -1,0 +1,37 @@
+[{
+        "id": "1",
+        "position": "1",
+        "lyric": "walking my way through town, talking fast",
+        "song_id": "1"
+    },
+    {
+        "id": "3",
+        "position": "3",
+        "lyric": "it all makes sense to us now",
+        "song_id": "1"
+    },
+    {
+        "id": "2",
+        "position": "2",
+        "lyric": "making my way down round, mixing fast",
+        "song_id": "1"
+    },
+    {
+        "id": "4",
+        "position": "1",
+        "lyric": "walking talking fast",
+        "song_id": "2"
+    },
+    {
+        "id": "5",
+        "position": "3",
+        "lyric": "it now",
+        "song_id": "2"
+    },
+    {
+        "id": "6",
+        "position": "2",
+        "lyric": "making, mixing fast",
+        "song_id": "2"
+    }
+]

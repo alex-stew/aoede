@@ -1,0 +1,73 @@
+[{
+        "id": "1",
+        "position": "1",
+        "bar_id": "1",
+        "chord_id": "1"
+    },
+    {
+        "id": "9",
+        "position": "1",
+        "bar_id": "3",
+        "chord_id": " 1"
+    },
+    {
+        "id": "2",
+        "position": "2",
+        "bar_id": "1",
+        "chord_id": "2"
+    },
+    {
+        "id": "3",
+        "position": "3",
+        "bar_id": "1",
+        "chord_id": "3"
+    },
+    {
+        "id": "4",
+        "position": "4",
+        "bar_id": "1",
+        "chord_id": "4"
+    },
+    {
+        "id": "7",
+        "position": "3",
+        "bar_id": "2",
+        "chord_id": "1"
+    },
+    {
+        "id": "5",
+        "position": "1",
+        "bar_id": "2",
+        "chord_id": " 1"
+    },
+    {
+        "id": "6",
+        "position": "2",
+        "bar_id": "2",
+        "chord_id": "1"
+    },
+    {
+        "id": "8",
+        "position": "4",
+        "bar_id": "2",
+        "chord_id": "1"
+    },
+    {
+        "id": "10",
+        "position": "2",
+        "bar_id": "3",
+        "chord_id": "7"
+    },
+    {
+        "id": "11",
+        "position": "3",
+        "bar_id": "3",
+        "chord_id": "5"
+    },
+    {
+        "id": "12",
+        "position": "4",
+        "bar_id": "3",
+        "chord_id": "2"
+    }
+]

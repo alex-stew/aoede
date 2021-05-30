@@ -1,6 +1,21 @@
+import React, { useState } from 'react';
 import { LockClosedIcon } from '@heroicons/react/solid'
+import PropTypes from 'prop-types';
 
-export default function Login() {
+async function loginUser(credentials) {
+  return fetch('https://localhost:3001/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(credentials)
+  })
+  .then(data => data.json())
+}
+
+export default function Login({setToken}) {
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState(); 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -29,6 +44,7 @@ export default function Login() {
                 id="email-address"
                 name="email"
                 type="email"
+                onChange={e => setUsername(e.target.value)}
                 autoComplete="email"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -43,6 +59,7 @@ export default function Login() {
                 id="password"
                 name="password"
                 type="password"
+                onChange={e => setPassword(e.target.value)}
                 autoComplete="current-password"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -86,4 +103,8 @@ export default function Login() {
       </div>
     </div>
   )
+}
+
+Login.propTypes = {
+  setToken: PropTypes.func.isRequired
 }
