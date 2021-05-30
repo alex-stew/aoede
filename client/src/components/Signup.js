@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { LockClosedIcon } from '@heroicons/react/solid';
 import { useAuth } from '../contexts/AuthContext';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 export default function Signup() {
     const emailRef = useRef();
@@ -10,6 +10,7 @@ export default function Signup() {
     const { signup } = useAuth();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false)
+    const history = useHistory()
     
     async function handleSubmit(e) {
         e.preventDefault();
@@ -21,6 +22,7 @@ export default function Signup() {
             setError('')
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
+            history.push("/")
         } catch(err) {
             setError('Failed to set up your account...')
             console.log(err)
@@ -39,17 +41,12 @@ export default function Signup() {
             alt="app logo"
           />
           <h2 className="my-6 text-center text-3xl font-extrabold text-gray-900">
-            Sign Up and Start Collaborating
+            Sign up and start collaborating
           </h2>
-          <div className="bg-red-100 rounded-md bg-opacity-75 text-center p-2">{error}</div>
+          {error && <div className="bg-red-100 rounded-md bg-opacity-75 text-center p-2">{error}</div>}
           <p className="mt-2 text-center text-sm text-gray-600">
-            Or{" "}
-            <a
-              href="#"
-              className="font-medium text-indigo-600 hover:text-indigo-500"
-            >
-              Already have an account? <Link to="/Login">Log In</Link>
-            </a>
+            Or,{" "}
+              <Link to="/Login" className="font-medium text-indigo-600 hover:text-indigo-500">already have an account? Log In</Link>
           </p>
         </div>
 

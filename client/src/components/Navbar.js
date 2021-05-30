@@ -1,7 +1,10 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { BookOpenIcon, PencilIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { Link, useHistory } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
+import Dashboard from './Dashboard'
 
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
@@ -14,7 +17,23 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function Navbar() {
+  const [error, setError] = useState('')
+  const { currentUser, logout } = useAuth()
+  const history = useHistory
+
+  async function handleLogout() {
+    setError('')
+
+    try {
+      await logout()
+      history.push('./login')
+    }catch {
+      setError('Failed to log out')
+    }
+  }
+
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -65,8 +84,9 @@ export default function Example() {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
+                  <span className="sr-only">Edit | Play</span>
+                  <PencilIcon className="h-6 w-6" aria-hidden="true" />
+                  <BookOpenIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
 
                 {/* Profile dropdown */}
@@ -99,21 +119,20 @@ export default function Example() {
                         >
                           <Menu.Item>
                             {({ active }) => (
-                              <a
-                                href="#"
+                              <Link to={Dashboard}
                                 className={classNames(
                                   active ? 'bg-gray-100' : '',
                                   'block px-4 py-2 text-sm text-gray-700'
                                 )}
                               >
                                 Your Profile
-                              </a>
+                              </Link>
                             )}
                           </Menu.Item>
                           <Menu.Item>
                             {({ active }) => (
                               <a
-                                href="#"
+                                href="/Profile"
                                 className={classNames(
                                   active ? 'bg-gray-100' : '',
                                   'block px-4 py-2 text-sm text-gray-700'
@@ -125,15 +144,14 @@ export default function Example() {
                           </Menu.Item>
                           <Menu.Item>
                             {({ active }) => (
-                              <a
-                                href="#"
+                              <Link onClick={handleLogout}
                                 className={classNames(
                                   active ? 'bg-gray-100' : '',
                                   'block px-4 py-2 text-sm text-gray-700'
                                 )}
                               >
-                                Sign out
-                              </a>
+                                Log out
+                              </Link>
                             )}
                           </Menu.Item>
                         </Menu.Items>

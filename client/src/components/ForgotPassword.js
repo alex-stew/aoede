@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { LockClosedIcon } from '@heroicons/react/solid';
 import { useAuth } from '../contexts/AuthContext';
 import { Link, useHistory } from 'react-router-dom';
@@ -8,26 +8,23 @@ export default function Login() {
     const passwordRef = useRef();
     const { login } = useAuth();
     const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false);
-    const history = useHistory();
-
-    useEffect(() => {
-      setError('');
-
-    }, [])
+    const [loading, setLoading] = useState(false)
+    const history = useHistory()
     
     async function handleSubmit(e) {
         e.preventDefault();
-        
+
         try {
             setError('')
             setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value)
             history.push("/")
-        } catch(error) {
+        } catch(err) {
             setError('Failed to log in')
+            console.log(err)
         }
         setLoading(false)
+        
     }
 
   return (
@@ -39,11 +36,15 @@ export default function Login() {
             src="/aoedeLogo.png"
             alt="app logo"
           />
-          <h2 className="mt-6 mb-3 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
-          {error && <div className="bg-red-100 rounded-md bg-opacity-75 text-center p-2">{error}</div>}
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Or,{" "}
-            <Link to="/Signup" className="font-medium text-indigo-600 hover:text-indigo-500">need an account? Sign Up</Link>
+            Or{" "}
+            <a
+              href="#"
+              className="font-medium text-indigo-600 hover:text-indigo-500"
+            >
+              Need an account? <Link to="/Signup">Sign Up</Link>
+            </a>
           </p>
         </div>
         
@@ -58,7 +59,6 @@ export default function Login() {
                 id="email"
                 name="email"
                 type="email"
-                ref={emailRef}
                 autoComplete="email"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -73,7 +73,6 @@ export default function Login() {
                 id="password"
                 name="password"
                 type="password"
-                ref={passwordRef}
                 autoComplete="current-password"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -96,14 +95,14 @@ export default function Login() {
             </div>
 
             <div className="text-sm">
-              <a href="" className="font-medium text-indigo-600 hover:text-indigo-500">
+              <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
                 Forgot your password?
               </a>
             </div>
           </div>
 
           <div>
-            <button disabled={loading}
+            <button
               type="submit"
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
