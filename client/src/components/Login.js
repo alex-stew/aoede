@@ -1,31 +1,7 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import { LockClosedIcon } from '@heroicons/react/solid'
-import PropTypes from 'prop-types';
 
-async function loginUser(credentials) {
-  return fetch('https://localhost:3001/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(credentials)
-  })
-  .then(data => data.json())
-}
-
-export default function Login({setToken}) {
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState(); 
-
-const handleSubmit = async e => {
-  e.preventDefault();
-  const token = await loginUser({
-    username,
-    password
-  });
-  setToken(token);
-}
-
+export default function Login(){
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -43,19 +19,21 @@ const handleSubmit = async e => {
             </a>
           </p>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        
+        {/* onSubmit={handleSubmit} */}
+        <form className="mt-8 space-y-6" >
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px">
-            <div>
-              <label htmlFor="username" className="sr-only">
+          <div>
+              <label htmlFor="email address" className="sr-only">
                 Email address
               </label>
               <input
-                id="username"
-                name="username"
-                type="username"
-                onChange={e => setUsername(e.target.value)}
-                autoComplete="username"
+                id="email address"
+                name="email address"
+                type="email address"
+                // onChange={e => setUsername(e.target.value)}
+                autoComplete="email address"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
@@ -69,7 +47,7 @@ const handleSubmit = async e => {
                 id="password"
                 name="password"
                 type="password"
-                onChange={e => setPassword(e.target.value)}
+                // onChange={e => setPassword(e.target.value)}
                 autoComplete="current-password"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -113,8 +91,4 @@ const handleSubmit = async e => {
       </div>
     </div>
   )
-}
-
-Login.propTypes = {
-  setToken: PropTypes.func.isRequired
 }

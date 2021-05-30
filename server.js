@@ -19,7 +19,6 @@ const sess = {
     db: sequelize
   })
 };
-
 app.use(session(sess));
 app.use(cors());
 
@@ -37,9 +36,9 @@ app.use('/login', (req, res) => {
   });
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening 🌏 on PORT: ' + PORT));
