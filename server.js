@@ -3,6 +3,7 @@ const path = require('path');
 const routes = require('./routes');
 const session = require('express-session');
 const cors = require('cors');
+const decodeIDToken = require('./utils/token');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -24,17 +25,14 @@ app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(decodeIDToken);
+
 app.use(routes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
-app.use('/login', (req, res) => {
-  res.send({ 
-    token:'test123'
-  });
-});
 
 // app.get("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "./client/build/index.html"));

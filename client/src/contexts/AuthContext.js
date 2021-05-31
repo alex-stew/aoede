@@ -9,6 +9,7 @@ export function useAuth() {
 
 export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState()
+    const [token, setToken] = useState('')
     const [loading, setLoading] = useState(true)
 
     function signup(email, password) {
@@ -23,13 +24,23 @@ export function AuthProvider({ children }) {
         return auth.signOut()
     }
 
+    function getFirebaseToken() {
+        return auth.currentUser.getIdToken().then((token) => {
+            return token
+          
+        })
+    }
+
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             setCurrentUser(user)
+            setToken(getFirebaseToken)
+            console.log(token)  
             setLoading(false)
-        })
+        });
 
         return unsubscribe
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const value = {
@@ -37,6 +48,7 @@ export function AuthProvider({ children }) {
         signup,
         login,
         logout,
+        token,
     }
 
     return (

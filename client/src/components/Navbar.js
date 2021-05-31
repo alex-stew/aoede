@@ -8,9 +8,9 @@ import Dashboard from './Dashboard'
 
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
-  { name: 'MyBand', href: '#', current: false },
+  // { name: 'MyBand', href: '#', current: false },
   { name: 'MyMusic', href: '#', current: false },
-  { name: 'Dates', href: '#', current: false },
+  // { name: 'Dates', href: '#', current: false },
 ]
 
 function classNames(...classes) {
@@ -51,16 +51,16 @@ export default function Navbar() {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex-shrink-0 flex items-center">
+              <div className="flex-1 flex items-center content-center justify-center sm:items-stretch sm:justify-start">
+                <div className="flex-shrink-0 flex items-center content-center">
                   <img
-                    className="block lg:hidden h-8 w-auto"
-                    src="/aoedeLogo.png"
+                    className="block lg:hidden h-14 w-auto"
+                    src="/aoedeLogo.svg"
                     alt="app logo"
                   />
                   <img
-                    className="hidden lg:block h-8 w-auto"
-                    src="/aoedeLogo.png"
+                    className="hidden lg:block h-14 w-auto"
+                    src="/aoedeLogo.svg"
                     alt="app logo"
                   />
                 </div>
@@ -127,7 +127,7 @@ export default function Navbar() {
                           <Menu.Item>
                             {({ active }) => (
                               <a
-                                href="/Profile"
+                                href="/profile"
                                 className={classNames(
                                   active ? 'bg-gray-100' : '',
                                   'block px-4 py-2 text-sm text-gray-700'

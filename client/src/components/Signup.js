@@ -7,7 +7,7 @@ export default function Signup() {
     const emailRef = useRef();
     const passwordRef = useRef();
     const confirmPasswordRef = useRef();
-    const { signup } = useAuth();
+    const { signup, token } = useAuth();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false)
     const history = useHistory()
@@ -23,12 +23,12 @@ export default function Signup() {
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
             history.push("/")
+            
         } catch(err) {
             setError('Failed to set up your account...')
             console.log(err)
         }
-        setLoading(false)
-        
+        setLoading(false)    
     }
 
   return (
@@ -36,8 +36,8 @@ export default function Signup() {
       <div className="max-w-md w-full space-y-8">
         <div>
           <img
-            className="mx-auto h-12 w-auto"
-            src="/aoedeLogo.png"
+            className="mx-auto h-96 w-auto"
+            src="/aoedeLogo.svg"
             alt="app logo"
           />
           <h2 className="my-6 text-center text-3xl font-extrabold text-gray-900">

@@ -6,7 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 export default function Login() {
     const emailRef = useRef();
     const passwordRef = useRef();
-    const { login } = useAuth();
+    const { login, token } = useAuth();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const history = useHistory();
@@ -35,8 +35,8 @@ export default function Login() {
       <div className="max-w-md w-full space-y-8">
         <div>
           <img
-            className="mx-auto h-12 w-auto"
-            src="/aoedeLogo.png"
+            className="mx-auto h-96 w-auto"
+            src="/aoedeLogo.svg"
             alt="app logo"
           />
           <h2 className="mt-6 mb-3 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
