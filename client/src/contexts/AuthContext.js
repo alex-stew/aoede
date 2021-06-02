@@ -24,9 +24,9 @@ export function AuthProvider({ children }) {
         return auth.signOut()
     }
 
-    function getFirebaseToken() {
-        return auth.currentUser.getIdToken().then((token) => {
-            return token
+    async function getFirebaseToken() {
+        await auth.currentUser.getIdToken().then((token) => {
+            setToken(token)
         })
     }
 
@@ -34,11 +34,9 @@ export function AuthProvider({ children }) {
         const unsubscribe = auth.onAuthStateChanged(user => {
             setCurrentUser(user)
             if (currentUser) {
-                setToken(getFirebaseToken)
-                console.log(token)  
-                setLoading(false)
+              getFirebaseToken()  
             }
-            
+            setLoading(false)
         });
 
         return unsubscribe

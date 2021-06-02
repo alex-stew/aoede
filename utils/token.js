@@ -17,4 +17,4 @@ async function decodeIDToken (req, res, next) {
         }
     }
 
-  module.exports = decodeIDToken();
+  module.exports = decodeIDToken;
