@@ -1,6 +1,6 @@
 const admin = require('../config/firebase-config')
 
-const decodeIDToken = (req, res, next) => {
+async function decodeIDToken (req, res, next) {
         if (req.headers?.authorization?.startsWith('Bearer ')) {
         const idToken = req.headers.authorization.split('Bearer ')[1];
     
