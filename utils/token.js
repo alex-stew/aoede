@@ -1,7 +1,6 @@
 const admin = require('../config/firebase-config')
 
-class Middleware {
-    async decodeIDToken(req, res, next) {
+const decodeIDToken = (req, res, next) => {
         if (req.headers?.authorization?.startsWith('Bearer ')) {
         const idToken = req.headers.authorization.split('Bearer ')[1];
     
@@ -17,6 +16,5 @@ class Middleware {
         }
         }
     }
-}
 
-  module.exports = new Middleware();
+  module.exports = decodeIDToken();

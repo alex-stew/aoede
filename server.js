@@ -3,7 +3,7 @@ const path = require('path');
 const routes = require('./routes');
 const session = require('express-session');
 const cors = require('cors');
-const decodeIDToken = require('./utils/token');
+const decodeIDTokenMiddle = require('./utils/token');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -26,7 +26,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(decodeIDToken);
+app.use(decodeIDTokenMiddle);
 
 app.use(routes);
 
