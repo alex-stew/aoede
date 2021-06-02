@@ -1,5 +1,4 @@
 const admin = require('../config/firebase-config')
-admin.initializeApp();
 
 class Middleware {
     async decodeIDToken(req, res, next) {
