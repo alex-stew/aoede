@@ -1,6 +1,12 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Band, Song, Bar, BarChord, Chord} = require('../../models');
 
+
+router.get('/', async (req, res) => {
+  const songData = await Band.findAll({
+    where: {song}
+  })
+})
 
 router.post('/', async (req, res) => {
   try {

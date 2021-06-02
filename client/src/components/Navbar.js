@@ -54,12 +54,12 @@ export default function Navbar() {
               <div className="flex-1 flex items-center content-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center content-center">
                   <img
-                    className="block lg:hidden h-14 w-auto"
+                    className="block lg:hidden h-10 w-auto"
                     src="/aoedeLogo.svg"
                     alt="app logo"
                   />
                   <img
-                    className="hidden lg:block h-14 w-auto"
+                    className="hidden lg:block h-10 w-auto"
                     src="/aoedeLogo.svg"
                     alt="app logo"
                   />
