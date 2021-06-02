@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const routes = require('./routes');
 const session = require('express-session');
+reuire('dotenv').config();
 const cors = require('cors');
 const decodeIDTokenMiddle = require('./utils/token');
 
