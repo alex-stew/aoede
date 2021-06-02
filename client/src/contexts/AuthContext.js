@@ -24,18 +24,21 @@ export function AuthProvider({ children }) {
         return auth.signOut()
     }
 
-    // function getFirebaseToken() {
-    //     return auth.currentUser.getIdToken().then((token) => {
-    //         return token
-    //     })
-    // }
+    function getFirebaseToken() {
+        return auth.currentUser.getIdToken().then((token) => {
+            return token
+        })
+    }
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             setCurrentUser(user)
-            // setToken(getFirebaseToken)
-            console.log(token)  
-            setLoading(false)
+            if (currentUser) {
+                setToken(getFirebaseToken)
+                console.log(token)  
+                setLoading(false)
+            }
+            
         });
 
         return unsubscribe
