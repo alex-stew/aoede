@@ -5,7 +5,7 @@ require('dotenv').config();
 const apiRoutes = require('./api');
 
 if (process.env.NODE_ENV === "production") {
-    app.get("/*", (req, res) => {
+    router.get("/*", (req, res) => {
         res.sendFile(path.join(__dirname, "../client/build/index.html"));
     });
 }
